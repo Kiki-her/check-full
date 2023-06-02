@@ -12,10 +12,6 @@ import "./ProductCard.css";
 // 親コンポーネントではmapしてproductの数だけCardを作る
 const ProductCard = function ({ title, author, price }) {
   // 疑似product
-  title = "生まれた時から筋肉少女帯";
-  author = "オーカム";
-  price = 2000;
-
   const addingAlert = function () {
     // buttonのonClick機能
     // 会計に追加されたら、popupを出して"商品が追加されました！"と通知する
