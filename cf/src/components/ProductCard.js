@@ -52,6 +52,7 @@ const ProductCard = function ({ title, author, price }) {
               <div className="header"> YAY! </div>
               <div className="content">商品が会計に追加されました！</div>
               <div className="actions"></div>
+              {/* 追加を取り消しできるbuttonも作る */}
               <button
                 className="button"
                 onClick={() => {
