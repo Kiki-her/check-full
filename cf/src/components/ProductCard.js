@@ -70,7 +70,9 @@ const ProductCard = function ({ title, author, price }) {
 
   return (
     <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">{card}</Card>
+      <Card className="card" variant="outlined">
+        {card}
+      </Card>
     </Box>
   );
 };

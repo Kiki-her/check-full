@@ -32,3 +32,10 @@
     border-radius: 18px;
     border: 1px solid #cfcece;
   }
+
+  .card {
+    width: 20%;
+    height: 18%;
+    margin: 10px;
+    float: right;
+  }

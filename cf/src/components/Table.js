@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { Container } from "@mui/material";
 import Popup from "reactjs-popup";
 import TextField from "@mui/material/TextField";
+import "./Table.css";
 let fakeData = [
   {
     title: "筋肉",
@@ -46,73 +47,75 @@ const Table = function () {
 
   return (
     <Container>
-      <div>商品リスト</div>
-
-      <Popup
-        trigger={
-          <button className="button" onClick>
-            ＋
-          </button>
-        }
-        modal
-        nested
-      >
-        {(close) => (
-          <div className="modal">
-            <button className="close" onClick={close}>
-              &times;
+      <div className="listTitle">
+        商品リスト
+        <Popup
+          trigger={
+            <button className="plusButton" onClick>
+              ➕
             </button>
-            <div className="header"> 商品登録 </div>
-            <div className="content">
-              <TextField
-                label="商品名"
-                variant="outlined"
-                onChange={(event) => {
-                  newItemObj.title = event.target.value;
-                }}
-              />
-              <TextField
-                label="著者"
-                variant="outlined"
-                onChange={(event) => {
-                  newItemObj.author = event.target.value;
-                }}
-              />
-              <TextField
-                label="値段"
-                variant="outlined"
-                onChange={(event) => {
-                  newItemObj.price = Number(event.target.value);
-                }}
-              />
-            </div>
-            <div className="actions">
-              <button
-                className="button"
-                onClick={() => {
-                  newItemObj = {
-                    title: "",
-                    author: "",
-                    price: 0,
-                  };
-                  close();
-                }}
-              >
-                Cancel
+          }
+          modal
+          nested
+        >
+          {(close) => (
+            <div className="modal">
+              <button className="close" onClick={close}>
+                &times;
               </button>
-              <button
-                className="button"
-                onClick={() => {
-                  addProduct();
-                  close();
-                }}
-              >
-                登録
-              </button>
+              <div className="header"> 商品登録 </div>
+              <div className="content">
+                <TextField
+                  label="商品名"
+                  variant="outlined"
+                  onChange={(event) => {
+                    newItemObj.title = event.target.value;
+                  }}
+                />
+                <TextField
+                  label="著者"
+                  variant="outlined"
+                  onChange={(event) => {
+                    newItemObj.author = event.target.value;
+                  }}
+                />
+                <TextField
+                  label="値段"
+                  variant="outlined"
+                  onChange={(event) => {
+                    newItemObj.price = Number(event.target.value);
+                  }}
+                />
+              </div>
+              <div className="actions">
+                <button
+                  className="button"
+                  onClick={() => {
+                    newItemObj = {
+                      title: "",
+                      author: "",
+                      price: 0,
+                    };
+                    close();
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="button"
+                  onClick={() => {
+                    addProduct();
+                    close();
+                  }}
+                >
+                  登録
+                </button>
+              </div>
             </div>
-          </div>
-        )}
-      </Popup>
+          )}
+        </Popup>
+      </div>
+
       {items.map((obj, i) => {
         return (
           <ProductCard

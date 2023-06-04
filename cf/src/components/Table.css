@@ -1,0 +1,9 @@
+.listTitle {
+    margin: 2%;
+}
+
+.listTitle .plusButton {
+    margin-left: 0.8%;
+    background-color: aqua;
+    border-radius: 30%;
+}
