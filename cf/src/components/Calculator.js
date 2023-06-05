@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 
+// いらないかも。textfieldで数字入力してもらえば良くね？
 const Calculator = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
