@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
+import Calculator from "./Calculator";
 
 const Checkout = () => {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -32,18 +33,18 @@ const Checkout = () => {
       <Typography variant="h5">Checkout</Typography>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Typography>Total Amount: {totalAmount}</Typography>
+          <Typography>合計: {totalAmount}</Typography>
         </Grid>
         <Grid item xs={12}>
           <TextField
             type="number"
             value={paymentAmount}
             onChange={handlePaymentAmountChange}
-            label="Payment Amount"
+            label="受け取り"
           />
         </Grid>
         <Grid item xs={12}>
-          <Typography>Change: {calculateChange()}</Typography>
+          <Typography>お釣り: {calculateChange()}</Typography>
         </Grid>
         <Grid item xs={12}>
           <Button variant="contained" color="primary">
@@ -52,6 +53,7 @@ const Checkout = () => {
         </Grid>
       </Grid>
       {/* 商品一覧や選択などの表示 */}
+      <Calculator />
     </div>
   );
 };
