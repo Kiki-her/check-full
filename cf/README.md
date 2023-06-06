@@ -82,7 +82,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - sales
   - id(primary)
-  - datetime(Date)
+  - date(datetime)
   - total_price(int)
   - received_amount(int)
   - sold_products(json)
