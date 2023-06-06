@@ -5,6 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 
+// budgeContentも変動するようにする
 const ShopIcon = function () {
   const navigate = useNavigate();
   const StyledBadge = styled(Badge)(({ theme }) => ({
