@@ -3,8 +3,10 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
 
 const ShopIcon = function () {
+  const navigate = useNavigate();
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -3,
@@ -14,7 +16,7 @@ const ShopIcon = function () {
     },
   }));
   return (
-    <IconButton aria-label="cart">
+    <IconButton aria-label="cart" onClick={() => navigate("/check")}>
       <StyledBadge badgeContent={4} color="secondary">
         <ShoppingCartIcon />
       </StyledBadge>

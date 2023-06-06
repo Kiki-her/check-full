@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [paymentAmount, setPaymentAmount] = useState(0);
@@ -49,7 +51,11 @@ const Checkout = () => {
           <Typography>お釣り: {calculateChange()}</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate("/")}
+          >
             DONE
           </Button>
         </Grid>

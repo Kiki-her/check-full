@@ -7,7 +7,7 @@ const Routers = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Table />} />
-        <Route path="check" element={<Checkout />} />
+        <Route path="/check" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );
