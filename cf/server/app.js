@@ -31,6 +31,12 @@ app.get("/sales", async (req, res) => {
   res.send(sales);
 });
 
+// productをpostできるendpointを作る
+// productをdeleteできるendpointを作る
+// productをpatchできるendpointを作る
+// salesの情報をpostするendpointを作る
+// salesの情報をdeleteするendpointを作る
+
 app.get("/api", (req, res) => {
   res.send("Hi~👋🏻");
 });
