@@ -32,6 +32,17 @@ app.get("/sales", async (req, res) => {
 });
 
 // productをpostできるendpointを作る
+
+app.post("/products", async (req, res) => {
+  const data = req.body;
+
+  await knex("products").insert({
+    title: data.title,
+    author: data.author,
+    price: data.price,
+  });
+  res.send(data);
+});
 // productをdeleteできるendpointを作る
 // productをpatchできるendpointを作る
 // salesの情報をpostするendpointを作る
