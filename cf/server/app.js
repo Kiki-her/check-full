@@ -12,15 +12,11 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
 app.listen(port);
 if (port === 3000) {
   console.log(`Now hosting at "http://localhost:${port}/"`);
 }
-// app.use(express.static(path.join(__dirname, "build")));
-
-// app.get("/", function (req, res) {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
 
 app.get("/api", (req, res) => {
   res.send("Hi~👋🏻");
