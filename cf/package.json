@@ -38,7 +38,7 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start-server": "nodemon server/app.js",
+    "server": "nodemon server/app.js",
     "local": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
