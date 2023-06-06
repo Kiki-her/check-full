@@ -10,9 +10,11 @@ app.use(express.json());
 
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "build")));
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+/* デプロイ時に外す？
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+*/
 app.get("/products", async (req, res) => {
   const products = await knex
     .select()
@@ -20,6 +22,15 @@ app.get("/products", async (req, res) => {
     .then((results) => results);
   res.send(products);
 });
+
+app.get("/sales", async (req, res) => {
+  const sales = await knex
+    .select()
+    .from("sales")
+    .then((res) => res);
+  res.send(sales);
+});
+
 app.get("/api", (req, res) => {
   res.send("Hi~👋🏻");
 });
