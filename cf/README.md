@@ -76,7 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - products
 
   - id(primary)
-  - name(str)
+  - title(str)
   - price(int)
   - author(str)
 
