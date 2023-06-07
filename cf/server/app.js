@@ -44,6 +44,13 @@ app.post("/products", async (req, res) => {
   res.send(data);
 });
 // productをdeleteできるendpointを作る
+
+app.delete("/products", async (req, res) => {
+  const data = req.body;
+
+  await knex("products").where("title", data.title).del();
+  res.send(data);
+});
 // productをpatchできるendpointを作る
 // salesの情報をpostするendpointを作る
 // salesの情報をdeleteするendpointを作る
