@@ -55,7 +55,6 @@ app.delete("/products", async (req, res) => {
   res.send(data);
 });
 // productをpatchできるendpointを作る
-// salesの情報をpostするendpointを作る
 
 app.post("/sales", async (req, res) => {
   const data = req.body;
