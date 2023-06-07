@@ -48,11 +48,25 @@ app.post("/products", async (req, res) => {
 app.delete("/products", async (req, res) => {
   const data = req.body;
 
-  await knex("products").where("title", data.title).del();
+  await knex("products")
+    .where("title", data.title)
+    .andWhere("author", data.author)
+    .del();
   res.send(data);
 });
 // productをpatchできるendpointを作る
 // salesの情報をpostするendpointを作る
+
+app.post("/sales", async (req, res) => {
+  const data = req.body;
+
+  await knex("sales").insert({
+    total_price: data.total_price,
+    received_price: data.received_price,
+    sold_products: JSON.stringify(data.sold_products),
+  });
+  res.send(data);
+});
 // salesの情報をdeleteするendpointを作る
 
 app.get("/api", (req, res) => {
