@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { Container } from "@mui/material";
 import Popup from "reactjs-popup";
@@ -6,28 +6,28 @@ import TextField from "@mui/material/TextField";
 import "./Table.css";
 import ShopIcon from "./ShopIcon";
 
-let fakeData = [
-  {
-    title: "筋肉",
-    author: "オー",
-    price: 1000,
-  },
-  {
-    title: "ランドリー",
-    author: "星",
-    price: 500,
-  },
-  {
-    title: "What is OK?",
-    author: "Miro",
-    price: 100,
-  },
-  {
-    title: "刺繍糸でできた家",
-    author: "マーガレット",
-    price: 800,
-  },
-];
+// let fakeData = [
+//   {
+//     title: "筋肉",
+//     author: "オー",
+//     price: 1000,
+//   },
+//   {
+//     title: "ランドリー",
+//     author: "星",
+//     price: 500,
+//   },
+//   {
+//     title: "What is OK?",
+//     author: "Miro",
+//     price: 100,
+//   },
+//   {
+//     title: "刺繍糸でできた家",
+//     author: "マーガレット",
+//     price: 800,
+//   },
+// ];
 
 let newItemObj = {
   title: "",
@@ -35,11 +35,24 @@ let newItemObj = {
   price: 0,
 };
 const Table = function () {
-  const [items, setItems] = useState(fakeData);
+  const [items, setItems] = useState([]);
 
-  const addProduct = function () {
+  useEffect(() => {
+    async function fetchProducts() {
+      const products = await fetch("http://localhost:3000/products");
+      console.log(products);
+      setItems(products);
+    }
+    fetchProducts();
+  }, items);
+
+  const addProduct = async function () {
     // 後ほど、DBに追加仕様に書き換える
     setItems([...items, newItemObj]);
+    await fetch("http://localhost:3000/products", {
+      method: "POST",
+      body: newItemObj,
+    });
     newItemObj = {
       title: "",
       author: "",
