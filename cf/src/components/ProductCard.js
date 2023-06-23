@@ -10,35 +10,36 @@ import "./ProductCard.css";
 
 // 引数としてproductの情報を受け取って、Cardを作成する。
 // 親コンポーネントではmapしてproductの数だけCardを作る
-const ProductCard = function ({ title, author, price }) {
+const ProductCard = function ({ obj, cartItems, setCartItems }) {
   // 疑似product
-  const addingAlert = function () {
+  const plusCartNumber = function () {
     // buttonのonClick機能
-    // 会計に追加されたら、popupを出して"商品が追加されました！"と通知する
+    // 会計に追加されたら、カートの数字を変える
   };
 
   const addCart = function () {
     // buttonのonClick機能
     // 会計に選択されたpriceを追加する
-    // 追加完了したら、addingAlert()を実行する
+    setCartItems([...cartItems, obj]);
+    console.log("GGGGGG");
   };
 
   const card = (
     <React.Fragment>
       <CardContent>
         <Typography variant="h5" component="div">
-          {title}
+          {obj.title}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {author}
+          {obj.author}
         </Typography>
-        <Typography variant="body2">{price}円</Typography>
+        <Typography variant="body2">{obj.price}円</Typography>
       </CardContent>
       <CardActions>
         <Popup
           trigger={
-            <Button variant="contained" size="small" onClick>
-              会計に追加
+            <Button variant="contained" size="small">
+              カートに追加
             </Button>
           }
           modal
@@ -50,9 +51,18 @@ const ProductCard = function ({ title, author, price }) {
                 &times;
               </button>
               <div className="header"> YAY! </div>
-              <div className="content">商品が会計に追加されました！</div>
+              <div className="content">商品をカートに追加しますか？</div>
               <div className="actions"></div>
-              {/* 追加を取り消しできるbuttonも作る */}
+              <button
+                className="button"
+                onClick={() => {
+                  console.log("modal closed ");
+                  addCart();
+                  close();
+                }}
+              >
+                yes
+              </button>
               <button
                 className="button"
                 onClick={() => {
@@ -60,7 +70,7 @@ const ProductCard = function ({ title, author, price }) {
                   close();
                 }}
               >
-                close
+                no
               </button>
             </div>
           )}

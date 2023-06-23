@@ -6,28 +6,28 @@ import TextField from "@mui/material/TextField";
 import "./Table.css";
 import ShopIcon from "./ShopIcon";
 
-// let fakeData = [
-//   {
-//     title: "筋肉",
-//     author: "オー",
-//     price: 1000,
-//   },
-//   {
-//     title: "ランドリー",
-//     author: "星",
-//     price: 500,
-//   },
-//   {
-//     title: "What is OK?",
-//     author: "Miro",
-//     price: 100,
-//   },
-//   {
-//     title: "刺繍糸でできた家",
-//     author: "マーガレット",
-//     price: 800,
-//   },
-// ];
+let fakeData = [
+  {
+    title: "筋肉",
+    author: "オー",
+    price: 1000,
+  },
+  {
+    title: "ランドリー",
+    author: "星",
+    price: 500,
+  },
+  {
+    title: "What is OK?",
+    author: "Miro",
+    price: 100,
+  },
+  {
+    title: "刺繍糸でできた家",
+    author: "マーガレット",
+    price: 800,
+  },
+];
 
 let newItemObj = {
   title: "",
@@ -36,12 +36,13 @@ let newItemObj = {
 };
 const Table = function () {
   const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     async function fetchProducts() {
-      const products = await fetch("http://localhost:3000/products");
-      console.log(products);
-      setItems(products);
+      // const products = await fetch("http://localhost:9000/products");
+      console.log(fakeData);
+      setItems(fakeData);
     }
     fetchProducts();
   }, items);
@@ -49,10 +50,11 @@ const Table = function () {
   const addProduct = async function () {
     // 後ほど、DBに追加仕様に書き換える
     setItems([...items, newItemObj]);
-    await fetch("http://localhost:3000/products", {
-      method: "POST",
-      body: newItemObj,
-    });
+    // await fetch("http://localhost:9000/products", {
+    //   method: "POST",
+    //   body: newItemObj,
+    // });
+
     newItemObj = {
       title: "",
       author: "",
@@ -63,7 +65,7 @@ const Table = function () {
   return (
     <>
       <header>
-        <ShopIcon />
+        <ShopIcon items={cartItems} />
       </header>
       <Container>
         <div className="listTitle">
@@ -138,9 +140,9 @@ const Table = function () {
         {items.map((obj) => {
           return (
             <ProductCard
-              title={obj.title}
-              author={obj.author}
-              price={obj.price}
+              obj={obj}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
             />
           );
         })}

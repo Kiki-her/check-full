@@ -4,20 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const [selectedItems, setSelectedItems] = useState([]);
+  // const [selectedItems, setSelectedItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [paymentAmount, setPaymentAmount] = useState(0);
 
   // 商品選択
-  const handleItemSelection = (item) => {
-    setSelectedItems([...selectedItems, item]);
-  };
+  // const handleItemSelection = (item) => {
+  //   setSelectedItems([...selectedItems, item]);
+  // };
 
   // 合計金額算出
-  const calculateTotalAmount = () => {
-    const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
-    setTotalAmount(total);
-  };
+  // const calculateTotalAmount = () => {
+  //   const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+  //   setTotalAmount(total);
+  // };
 
   // お釣り計算
   const calculateChange = () => {

@@ -6,7 +6,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 
 // budgeContentも変動するようにする
-const ShopIcon = function () {
+const ShopIcon = function ({ items }) {
   const navigate = useNavigate();
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
@@ -16,9 +16,10 @@ const ShopIcon = function () {
       padding: "0 4px",
     },
   }));
+  const totalNum = items.length;
   return (
     <IconButton aria-label="cart" onClick={() => navigate("/check")}>
-      <StyledBadge badgeContent={4} color="secondary">
+      <StyledBadge badgeContent={totalNum} color="secondary">
         <ShoppingCartIcon />
       </StyledBadge>
     </IconButton>
