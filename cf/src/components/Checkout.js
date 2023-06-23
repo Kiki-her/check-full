@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+// import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 const Checkout = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   // const [selectedItems, setSelectedItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [paymentAmount, setPaymentAmount] = useState(0);
+
+  useEffect(() => {
+    const cartItemsState = location.state;
+    const prices = cartItemsState.map((obj) => obj.price);
+    const total = prices.reduce((pre, curr) => pre + curr, 0);
+    console.log(total, "HHH");
+    setTotalAmount(total);
+  }, []);
+  // const total = 0;
+  // for (let i = 0; i < cartItems.length; i++) {
+  //   total += cartItems.price;
+  // }
+  // setTotalAmount(total);
+  // console.log(total);
 
   // 商品選択
   // const handleItemSelection = (item) => {

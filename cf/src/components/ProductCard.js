@@ -11,12 +11,6 @@ import "./ProductCard.css";
 // 引数としてproductの情報を受け取って、Cardを作成する。
 // 親コンポーネントではmapしてproductの数だけCardを作る
 const ProductCard = function ({ obj, cartItems, setCartItems }) {
-  // 疑似product
-  const plusCartNumber = function () {
-    // buttonのonClick機能
-    // 会計に追加されたら、カートの数字を変える
-  };
-
   const addCart = function () {
     // buttonのonClick機能
     // 会計に選択されたpriceを追加する

@@ -65,7 +65,7 @@ const Table = function () {
   return (
     <>
       <header>
-        <ShopIcon items={cartItems} />
+        <ShopIcon cartItems={cartItems} setCartItems={setCartItems} />
       </header>
       <Container>
         <div className="listTitle">
