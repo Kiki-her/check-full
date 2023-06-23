@@ -1,3 +1,32 @@
+# check-full
+
+## schema
+
+- products
+
+  - id(primary)
+  - title(str)
+  - price(int)
+  - author(str)
+
+- sales
+  - id(primary)
+  - date(datetime)
+  - total_price(int)
+  - received_amount(int)
+  - sold_products(json)
+
+## installed
+
+- reactjs-popup(https://react-popup.elazizi.com/)
+- material-ui(https://mui.com/material-ui)
+
+## 参考
+
+- pwa 化( https://qiita.com/yosse95ai/items/53407c560062451271e5#pwa%E5%AF%BE%E5%BF%9C%E3%81%B2%E3%81%AA%E5%9E%8B%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B )
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,30 +97,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# check-full
-
-## schema
-
-- products
-
-  - id(primary)
-  - title(str)
-  - price(int)
-  - author(str)
-
-- sales
-  - id(primary)
-  - date(datetime)
-  - total_price(int)
-  - received_amount(int)
-  - sold_products(json)
-
-## installed
-
-- reactjs-popup(https://react-popup.elazizi.com/)
-- material-ui(https://mui.com/material-ui)
-
-## 参考
-
-- pwa 化( https://qiita.com/yosse95ai/items/53407c560062451271e5#pwa%E5%AF%BE%E5%BF%9C%E3%81%B2%E3%81%AA%E5%9E%8B%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B )
